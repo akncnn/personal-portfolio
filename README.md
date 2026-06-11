@@ -1,16 +1,57 @@
-# React + Vite
+# 💼 Akıncan Altıntaş — Kişisel Portföy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 **Canlı Demo:** [akincan-altintas.netlify.app](https://akincan-altintas.netlify.app/)
 
-Currently, two official plugins are available:
+Kütahya Dumlupınar Üniversitesi Bilgisayar Mühendisliği mezunu, Full Stack Developer Akıncan Altıntaş'ın kişisel portföy sitesi.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Özellikler
 
-## React Compiler
+- 🌍 **Çift Dil Desteği** — TR / EN dil geçişi (React Context ile)
+- 📱 **Responsive Tasarım** — Mobil uyumlu, hamburger menü
+- 🗂️ **Portföy Sekmeleri** — Desktop, Website, Games ve tüm projeler filtreleme
+- 🪟 **Proje Detay Modalı** — Her proje için detaylı açılır pencere
+- 📋 **Bölümler** — Intro, Hakkımda, Portföy, Hizmetler, Deneyim, İletişim
+- 📩 **İletişim Formu** — Mesaj gönderme bölümü
+- ⚡ **Smooth Scroll** — Bölümler arası yumuşak geçiş
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Teknolojiler
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Kurulum
+
+```bash
+npm install
+npm run dev
+```
+
+```bash
+# Production build
+npm run build
+```
+
+## 📂 Proje Yapısı
+
+```
+src/
+├── components/
+│   ├── header.jsx              # Navbar + dil değiştirici
+│   ├── introSection.jsx        # Hero bölümü
+│   ├── aboutSection.jsx        # Hakkımda
+│   ├── portSection.jsx         # Portföy + sekme filtresi
+│   ├── ProjectDetailModal.jsx  # Proje detay modalı
+│   ├── servicesSection.jsx     # Hizmetler
+│   ├── experienceSection.jsx   # Deneyim
+│   └── contactSection.jsx      # İletişim formu
+├── contexts/
+│   └── LanguageContext.jsx     # TR/EN dil yönetimi
+└── App.jsx
+```
+
+## 🌐 Dağıtım
+
+```bash
+npm run build
+# dist/ klasörünü Netlify'a sürükle-bırak ile yükle
+```
