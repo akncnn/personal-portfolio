@@ -1,0 +1,124 @@
+import React, { createContext, useContext, useState } from 'react';
+
+const translations = {
+    en: {
+        nav: {
+            home: 'HOME',
+            about: 'ABOUT ME',
+            portfolio: 'PORTFOLIO',
+            services: 'SERVICES',
+            experience: 'EXPERIENCE',
+            contact: 'CONTACT',
+        },
+        intro: {
+            greeting: "I'm a",
+            previousProject: 'Previous Project',
+        },
+        about: {
+            title: 'About Me',
+            hireMe: 'Hire Me',
+            resume: 'Resume',
+        },
+        portfolio: {
+            title: 'PORTFOLIO',
+            tabs: {
+                website: 'Website',
+                desktop: 'Desktop',
+                games: 'Games',
+                allProjects: 'All Projects',
+            },
+            project: 'Project',
+            readMore: 'Read More',
+            visitSite: 'Visit Site',
+            viewAll: 'View All',
+        },
+        services: {
+            title: 'SERVICES',
+        },
+        experience: {
+            title: 'EXPERIENCE',
+        },
+        contact: {
+            title: 'CONTACT',
+            heading: 'Drop Me a Message',
+            namePlaceholder: 'Name',
+            emailPlaceholder: 'Email',
+            messagePlaceholder: 'Message',
+            send: 'Send',
+            copyright: '2022 - Fazil Studio, All rights reserved',
+        },
+    },
+    tr: {
+        nav: {
+            home: 'ANASAYFA',
+            about: 'HAKKIMDA',
+            portfolio: 'PORTFÖY',
+            services: 'HİZMETLER',
+            experience: 'DENEYİM',
+            contact: 'İLETİŞİM',
+        },
+        intro: {
+            greeting: 'Ben bir',
+            previousProject: 'Önceki Projeler',
+        },
+        about: {
+            title: 'Hakkımda',
+            hireMe: 'Beni İşe Al',
+            resume: 'Özgeçmiş',
+        },
+        portfolio: {
+            title: 'PORTFÖY',
+            tabs: {
+                website: 'Web Sitesi',
+                desktop: 'Masaüstü',
+                games: 'Oyunlar',
+                allProjects: 'Tüm Projeler',
+            },
+            project: 'Proje',
+            readMore: 'Devamını Oku',
+            visitSite: 'Siteyi Ziyaret Et',
+            viewAll: 'Tümünü Gör',
+        },
+        services: {
+            title: 'HİZMETLER',
+        },
+        experience: {
+            title: 'DENEYİM',
+        },
+        contact: {
+            title: 'İLETİŞİM',
+            heading: 'Bana Mesaj Gönder',
+            namePlaceholder: 'İsim',
+            emailPlaceholder: 'E-posta',
+            messagePlaceholder: 'Mesaj',
+            send: 'Gönder',
+            copyright: '2022 - Fazil Studio, Tüm hakları saklıdır',
+        },
+    },
+};
+
+const LanguageContext = createContext();
+
+export const LanguageProvider = ({ children }) => {
+    const [language, setLanguage] = useState('en');
+
+    const toggleLanguage = () => {
+        setLanguage((prev) => (prev === 'en' ? 'tr' : 'en'));
+    };
+
+    const t = translations[language];
+
+    return (
+        <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+            {children}
+        </LanguageContext.Provider>
+    );
+};
+
+export const useLanguage = () => {
+    const context = useContext(LanguageContext);
+    if (!context) {
+        throw new Error('useLanguage must be used within LanguageProvider');
+    }
+    return context;
+};
